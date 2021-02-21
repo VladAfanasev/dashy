@@ -7,7 +7,11 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios';
 
+axios.get('http://localhost:1337/restaurants/1').then(response => {
+  console.log('test',response.data.name);
+});
 export default {
   name: 'App',
   components: {
