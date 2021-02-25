@@ -1,75 +1,33 @@
 <template>
-  <v-app>
-    <v-app-bar
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
       app
-      color="primary"
-      dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+      <!--  -->
+    </v-navigation-drawer>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-toolbar-title>Dashy</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
-      <v-calendar> </v-calendar>
+      <!--  -->    
+      <v-container>
+        <v-calendar-weekly
+        start="2021-01-01"
+        end="2021-12-31"
+        weekdays="[1, 2, 3, 4, 5, 6, 0]"
+        > </v-calendar-weekly>
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Vue from 'vue';
-import HelloWorld from './components/HelloWorld';
-import DaySpanVuetify from 'dayspan-vuetify';
-
-Vue.use( DaySpanVuetify, {
-  // options is vue definition, the resulting reactive component is stored in components as this.$dayspan or Vue.$dayspan
-  data: {
-    // data or computed to override
-  },
-  computed: {
-    // data or computed to override
-  },
-  methods: {
-    // methods to override
+  export default {
+    data: () => ({ drawer: null }),
   }
-});
-export default {
-  name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
-};
 </script>
